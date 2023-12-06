@@ -40,4 +40,7 @@ export const tvSlice = createSlice({
     }
 })
 
+//tv selector functions
+export const selectNetflixOriginals = (state) => state.tv.netflixOriginals;
+
 export default tvSlice.reducer;
