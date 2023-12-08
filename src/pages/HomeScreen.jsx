@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchNetflixOriginals, selectNetflixOriginals } from '../features/tv/tvSlice';
 import Header from '../components/Header';
+import Row from '../components/Row';
 
 function HomeScreen(props) {
     const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function HomeScreen(props) {
                 <Header video={data.results[randomIndex]} />
                 : "no data"
             }
+            <div className="container-fluid">
+                <Row />
+            </div>
         </>
     );
 }
