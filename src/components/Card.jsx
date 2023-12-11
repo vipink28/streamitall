@@ -1,10 +1,13 @@
 import React from 'react';
 
 function Card(props) {
-    const { video } = props;
+    const { video, isPoster } = props;
     return (
-        <div className='card'>
-            <img className='img-fluid' src={`https://image.tmdb.org/t/p/original${video?.backdrop_path}`} alt="" />
+        <div className='card text-white'>
+            <img className='card-img-top' src={`https://image.tmdb.org/t/p/original${isPoster ? video?.poster_path : video?.backdrop_path}`} alt="" />
+            <div className="card-body">
+                <h5 className='card-title'>{video?.name || video?.original_name || video?.title || video?.original_title}</h5>
+            </div>
         </div>
     );
 }

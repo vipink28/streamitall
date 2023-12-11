@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchNetflixOriginals, selectNetflixOriginals } from '../features/tv/tvSlice';
 import Header from '../components/Header';
 import Row from '../components/Row';
+import { fetchNowPlayingMovies, selectNowPlayingMovies } from '../features/movie/movieSlice';
+import { platformType } from '../utility/apirequests';
 
 function HomeScreen(props) {
     const dispatch = useDispatch();
@@ -30,7 +32,9 @@ function HomeScreen(props) {
                 : "no data"
             }
             <div className="container-fluid">
-                <Row />
+                <Row title="Now Playing Movies" action={fetchNowPlayingMovies} selector={selectNowPlayingMovies} platform={platformType.movie} isPoster={true} />
+
+                <Row title="Netflix Originals" action={fetchNetflixOriginals} selector={selectNetflixOriginals} platform={platformType.tv} />
             </div>
         </>
     );

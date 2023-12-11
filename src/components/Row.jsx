@@ -8,17 +8,18 @@ import { fetchNowPlayingMovies, selectNowPlayingMovies } from '../features/movie
 import Card from './Card';
 
 function Row(props) {
-    const nowPlayingMovies = useSelector(selectNowPlayingMovies);
+    const { title, action, selector, isPoster } = props;
+    const collection = useSelector(selector);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchNowPlayingMovies());
+        dispatch(action());
     }, [])
 
 
     return (
         <div className='text-white py-4'>
-            <h3 className='mb-3'>Row Title</h3>
+            <h3 className='mb-3'>{title}</h3>
             <Swiper
                 spaceBetween={20}
                 slidesPerView={5}
@@ -26,10 +27,10 @@ function Row(props) {
                 navigation
             >
                 {
-                    nowPlayingMovies.data?.results.map((movie) => {
+                    collection.data?.results.map((movie) => {
                         return (
                             <SwiperSlide key={movie.id}>
-                                <Card video={movie} />
+                                <Card video={movie} isPoster={isPoster} />
                             </SwiperSlide>
                         )
                     })
