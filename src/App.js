@@ -5,6 +5,8 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomeScreen from './pages/HomeScreen';
+import Details from './components/Details';
+import Browse from './pages/Browse';
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<HomeScreen />}></Route>
+        <Route path='/browse/:platform' element={<Browse />}></Route>
       </Routes>
+      <Details />
     </BrowserRouter>
   );
 }

@@ -3,11 +3,11 @@ import React from 'react';
 function Genre(props) {
     const { genreList } = props;
     return (
-        <div className='d-flex'>
+        <div className='d-flex gap-2'>
             {
-                genreList.map(() => {
+                genreList?.map((genre) => {
                     return (
-                        <span class="badge text-bg-warning">Warning</span>
+                        <span class="badge text-bg-warning">{genre?.name}</span>
                     )
                 })
             }

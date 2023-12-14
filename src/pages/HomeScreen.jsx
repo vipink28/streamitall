@@ -10,25 +10,16 @@ function HomeScreen(props) {
     const dispatch = useDispatch();
     const nfOriginals = useSelector(selectNetflixOriginals);
     const { status, data, error } = nfOriginals;
-
-    const [randomIndex, setRandomIndex] = useState(0);
     useEffect(() => {
         dispatch(fetchNetflixOriginals());
-    }, [])
+    }, []);
 
-    useEffect(() => {
-        if (data) {
-            const random = Math.floor(Math.random() * data.results.length);
-            setRandomIndex(random);
-        }
-    }, [data])
-
-
+    const random = Math.floor(Math.random() * data?.results.length);
 
     return (
         <>
             {data ?
-                <Header video={data.results[randomIndex]} />
+                <Header video={data.results[random]} platform={platformType.tv} />
                 : "no data"
             }
             <div className="container-fluid">

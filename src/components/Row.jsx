@@ -8,7 +8,7 @@ import { fetchNowPlayingMovies, selectNowPlayingMovies } from '../features/movie
 import Card from './Card';
 
 function Row(props) {
-    const { title, action, selector, isPoster } = props;
+    const { title, action, selector, isPoster, platform } = props;
     const collection = useSelector(selector);
     const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ function Row(props) {
                     collection.data?.results.map((movie) => {
                         return (
                             <SwiperSlide key={movie.id}>
-                                <Card video={movie} isPoster={isPoster} />
+                                <Card video={movie} isPoster={isPoster} platform={platform} />
                             </SwiperSlide>
                         )
                     })
