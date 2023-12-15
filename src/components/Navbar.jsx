@@ -15,7 +15,10 @@ function Navbar(props) {
                             <Link className="nav-link active" aria-current="page" to="#">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">Link</Link>
+                            <Link className="nav-link" to="/browse/tv">Tv</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/browse/movie">Movies</Link>
                         </li>
                         <li className="nav-item dropdown">
                             <Link className="nav-link dropdown-toggle" to="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
