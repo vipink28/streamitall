@@ -34,7 +34,7 @@ function Header(props) {
                         <div className='caption'>
                             <h1 className='title display-2'>{data?.name || data?.original_name || data?.title || data?.original_title}</h1>
                             <p className='fs-4'>{data?.overview}</p>
-                            <Genre genreList={data?.genres} />
+                            <Genre genreList={data?.genres} platform={platform} />
                             <Ratings voteAverage={data?.vote_average} voteCount={data?.vote_count} />
 
                             <button className='btn btn-warning me-2' onClick={showDetails} data-bs-toggle="modal" data-bs-target="#details-modal">More Info</button>

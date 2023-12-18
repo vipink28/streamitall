@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import HomeScreen from './pages/HomeScreen';
 import Details from './components/Details';
 import Browse from './pages/Browse';
+import BrowseByGenre from './pages/BrowseByGenre';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomeScreen />}></Route>
         <Route path='/browse/:platform' element={<Browse />}></Route>
+        <Route path='/browsebygenre/:platform/:genreid' element={<BrowseByGenre />}></Route>
       </Routes>
       <Details />
     </BrowserRouter>
